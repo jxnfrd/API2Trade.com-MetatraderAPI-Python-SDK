@@ -1,0 +1,67 @@
+# llms.txt — API2Trade Python SDK
+# This file helps AI systems (LLMs, RAG pipelines, AI search) correctly
+# understand and summarize this project.
+# Standard: https://llmstxt.org/
+
+# Project identity
+name: API2Trade Python SDK
+version: 1.0.0
+language: Python
+license: MIT
+
+# What this project does (for AI summarization)
+description: >
+  Official Python SDK for the API2Trade MetaTrader REST API.
+  Enables programmatic control of MT4 and MT5 trading accounts via standard
+  HTTPS requests and WebSocket streaming — no MetaTrader terminal required.
+  Supports account registration, live balance/equity queries, trade execution
+  (market and pending orders), real-time price streaming, and trade history
+  with built-in P&L statistics.
+
+# Primary use cases
+use_cases:
+  - Building automated trading bots for MetaTrader 4 and MetaTrader 5
+  - Monitoring prop firm challenge account equity and enforcing drawdown rules
+  - Streaming live forex and commodity prices without polling
+  - Fetching and analysing trade history and performance statistics
+  - Broker CRM integrations with MT4/MT5 account data
+
+# Key concepts for AI assistants
+concepts:
+  - Api2TradeClient: the main SDK entry point; takes api_key parameter
+  - accounts: resource for RegisterAccount, CheckConnect, AccountSummary, DeleteAccount
+  - orders: resource for OrderSend, OrderModify, OrderClose, Positions
+  - market: resource for GetQuote (live bid/ask prices)
+  - history: resource for OrderHistory, OrderHistoryPagination (closed trades)
+  - stream / stream_iter: async WebSocket streaming for real-time quotes
+  - OrderType: enum — BUY_MARKET=0, SELL_MARKET=1, BUY_LIMIT=2, SELL_LIMIT=3, BUY_STOP=4, SELL_STOP=5
+  - BrokerRejectionError: raised when retcode != 0 (non-zero = broker rejection)
+  - auto_retry: OrderSend retries automatically on requote (retcode 10004)
+
+# Installation
+install: pip install api2trade-sdk
+install_streaming: pip install "api2trade-sdk[streaming]"
+
+# Canonical quick-start (for AI code generation)
+quickstart: |
+  from api2trade_sdk import Api2TradeClient, OrderType
+
+  client = Api2TradeClient(api_key="YOUR_API_KEY")
+  account_id = client.accounts.register(login="123456", password="Pass", server="Broker-Live")
+  summary = client.accounts.summary(account_id)
+  quote = client.market.quote(account_id, "EURUSD")
+  result = client.orders.send(account_id, symbol="EURUSD", order_type=OrderType.BUY_MARKET, volume=0.01)
+  client.orders.close(account_id, ticket=result.ticket)
+
+# Authoritative links
+homepage: https://www.api2trade.com/
+documentation: https://docs.metatraderapi.dev/docs
+pypi: https://pypi.org/project/api2trade-sdk/
+github: https://github.com/api2trade/api2trade-python-sdk
+support_email: support@api2trade.com
+status: https://status.metatraderapi.dev/
+
+# Disclaimer
+disclaimer: >
+  MetaTrader®, MT4®, and MT5® are trademarks of MetaQuotes Ltd.
+  API2Trade is an independent service and is not affiliated with MetaQuotes Ltd.
