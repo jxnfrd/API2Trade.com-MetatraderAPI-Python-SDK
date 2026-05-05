@@ -48,9 +48,9 @@ dev = [
 [project.urls]
 Homepage      = "https://www.api2trade.com/"
 Documentation = "https://docs.metatraderapi.dev/docs"
-Repository    = "https://github.com/api2trade/api2trade-python-sdk"
-"Bug Tracker" = "https://github.com/api2trade/api2trade-python-sdk/issues"
-Changelog     = "https://github.com/api2trade/api2trade-python-sdk/blob/main/CHANGELOG.md"
+Repository    = "https://github.com/api2trade/API2Trade.com-MetatraderAPI-Python-SDK"
+"Bug Tracker" = "https://github.com/api2trade/API2Trade.com-MetatraderAPI-Python-SDK/issues"
+Changelog     = "https://github.com/api2trade/API2Trade.com-MetatraderAPI-Python-SDK/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where   = ["."]
