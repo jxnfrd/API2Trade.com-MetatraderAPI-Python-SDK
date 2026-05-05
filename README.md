@@ -1,7 +1,8 @@
 # API2Trade Python SDK
 
-> **Official Python SDK for the [API2Trade MetaTrader REST API](https://www.api2trade.com/).**  
-> Control MT4 and MT5 trading accounts programmatically — no MetaTrader terminal required.
+> **Official Python SDK for the <a href="https://api2trade.com" rel="dofollow">API2Trade</a> Metatrader API.**  
+> A robust **API for Metatrader** that lets you control your trading accounts programmatically.  
+> Build integrations, trading bots, and dashboards using this high-performance **MT4 API** and **MT5 API** — no MetaTrader terminal required.
 
 [![PyPI version](https://img.shields.io/badge/PyPI-api2trade--sdk-blue)](https://pypi.org/project/api2trade-sdk/)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
